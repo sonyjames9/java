@@ -1,0 +1,10 @@
+Notes
+-------------
+
+Arrays is not a continous memory allocation
+
+Single Linked List None - head - nodes - tail - None
+Node points to another Node
+
+For loop to traverse to the end
+
