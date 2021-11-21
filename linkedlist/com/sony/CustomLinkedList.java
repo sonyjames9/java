@@ -23,6 +23,16 @@ public class CustomLinkedList {
 
   }
 
+  /*
+   * public int insertFirstAndReturnVal(int value) { Node insertAtFirstNode = new
+   * Node(value); insertAtFirstNode.next = head; head = insertAtFirstNode; int
+   * value = insertAtFirstNode.value;
+   * 
+   * if (tail == null) { tail = head; } size += 1; return value;
+   * 
+   * }
+   */
+
   public void insertLast(int value) {
     if (tail == null)
       insertFirst(value);
@@ -41,10 +51,7 @@ public class CustomLinkedList {
     else if (index > size)
       throw new IndexOutOfBoundsException();
     else {
-      Node temp = head;
-      for (int i = 1; i < index; i++) {
-        temp = temp.next;
-      }
+      Node temp = findNodeAtIndex(index - 2);
       Node nodeToBeInserted = new Node(value, temp.next);
       temp.next = nodeToBeInserted;
       size += 1;
@@ -69,20 +76,13 @@ public class CustomLinkedList {
   }
 
   public void deleteLast() {
-    System.out.println("Size : " + size);
     Node traverseUptoSecondLastNode = head;
     for (int i = 0; i < size - 2; i++) {
       traverseUptoSecondLastNode = traverseUptoSecondLastNode.next;
-      System.out.println(traverseUptoSecondLastNode.value);
     }
     tail = traverseUptoSecondLastNode;
     tail.next = null;
-    // tail.next = null;
-    // while (true)
-    // System.out.println("test");
-    // tail = head.next;
-    // if (head.next == null)
-    // tail = null;
+    size -= 1;
   }
 
   public int deleteLastAndReturnValue() {
@@ -93,6 +93,41 @@ public class CustomLinkedList {
       tail = null;
     size -= 1;
     return value;
+  }
+
+  public int deleteAtIndex(int index) {
+    int value;
+    if (index == 0) {
+      return deleteFirstAndReturnValue();
+    } else if (index == size - 1) {
+      return deleteLastAndReturnValue();
+    } else if (index > size)
+      throw new IndexOutOfBoundsException();
+    else {
+      Node traverseToPrevNode = findNodeAtIndex(index - 2);
+      value = traverseToPrevNode.next.value;
+      traverseToPrevNode.next = traverseToPrevNode.next.next;
+      size -= 1;
+    }
+    return value;
+  }
+
+  public Node findNodeAtIndex(int index) {
+    Node node = head;
+    for (int i = 0; i < index; i++) {
+      node = node.next;
+    }
+    return node;
+  }
+
+  public Node findNodeWithValue(int value) {
+    Node node = head;
+    while (node != null) {
+      if (node.value == value)
+        return node;
+      node = node.next;
+    }
+    return null;
   }
 
   public void display() {

@@ -27,7 +27,10 @@ public class Main {
 
     cll.deleteLast();
     cll.display();
-
+    cll.insertFirst(56);
+    cll.insertFirst(45);
+    cll.display();
+    System.out.println(cll.deleteAtIndex(5));
+    cll.display();
   }
-
 }
