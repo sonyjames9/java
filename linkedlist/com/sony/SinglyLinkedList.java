@@ -1,13 +1,19 @@
 package linkedlist.com.sony;
 
-public class CustomLinkedList {
-
+public class SinglyLinkedList {
+  /*
+   * - LinkedList with head and tail, size is calculated in each function during
+   * insertion/deletion - head should always point to first node and tail to last
+   * node - use temp nodes to traverse for insertion/deletetion/searching/sorting
+   * - Never move head/tail references. - Draw your code before implementation -
+   * Visualize on pen and paper then implement
+   */
   private Node head;
   private Node tail;
 
   private int size = 0;
 
-  public CustomLinkedList() {
+  public SinglyLinkedList() {
     this.size = 0;
   }
 
@@ -120,14 +126,17 @@ public class CustomLinkedList {
     return node;
   }
 
-  public Node findNodeWithValue(int value) {
+  public int findNodeIndexOfValue(int value) {
     Node node = head;
+    int index = 1;
     while (node != null) {
       if (node.value == value)
-        return node;
+        return index;
+      // return node;
       node = node.next;
+      index += 1;
     }
-    return null;
+    return index;
   }
 
   public void display() {

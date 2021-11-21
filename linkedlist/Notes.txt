@@ -1,6 +1,8 @@
 Notes
 -------------
 
+** Singly LinkedList
+
 Arrays is not a continous memory allocation
 
 Single Linked List None - head - nodes - tail - None
@@ -8,3 +10,23 @@ Node points to another Node
 
 For loop to traverse to the end
 
+Try to imagine your code representation. 
+Here it's the linkedList, imagine the linkedlist, draw it draw the nodes and arrows,
+. It will give an idea.
+
+Add head and tails in your whiteboard.
+
+Question why single linkedlist only moves ahead and not backwards?
+
+- Then implement it
+Since single linkedlist has value and reference, the pointer 
+- head should always point to first node and tail to always last node
+
+
+
+** Doubly LinkedList
+
+- LinkedList with pointers pointing to next and previous node.
+- The first node's previous pointer will point to null
+- The last node's next pointer will point to null
+- 

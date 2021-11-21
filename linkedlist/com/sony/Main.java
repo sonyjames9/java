@@ -3,7 +3,7 @@ package linkedlist.com.sony;
 public class Main {
 
   public static void main(String[] args) {
-    CustomLinkedList cll = new CustomLinkedList();
+    SinglyLinkedList cll = new SinglyLinkedList();
     cll.insertFirst(3);
     cll.insertFirst(2);
     cll.insertFirst(8);
@@ -30,7 +30,8 @@ public class Main {
     cll.insertFirst(56);
     cll.insertFirst(45);
     cll.display();
-    System.out.println(cll.deleteAtIndex(5));
+    System.out.println("Value deleted at index : " + cll.deleteAtIndex(5));
     cll.display();
+    System.out.println("Index of node of searched value : " + cll.findNodeIndexOfValue(55));
   }
 }
