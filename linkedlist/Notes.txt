@@ -1,5 +1,6 @@
 Notes
 -------------
+- Draw addition and deletion of nodes in each type and you can implement
 
 ** Singly LinkedList
 
@@ -30,3 +31,4 @@ Since single linkedlist has value and reference, the pointer
 - The first node's previous pointer will point to null
 - The last node's next pointer will point to null
 - 
+
