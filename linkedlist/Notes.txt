@@ -23,6 +23,19 @@ Question why single linkedlist only moves ahead and not backwards?
 Since single linkedlist has value and reference, the pointer 
 - head should always point to first node and tail to always last node
 
+  private class Node {
+    private int value;
+    private Node next;
+
+    public Node(int value) {
+      this.value = value;
+    }
+
+    public Node(int value, Node next) {
+      this.value = value;
+      this.next = next;
+    }
+  }
 
 
 ** Doubly LinkedList
@@ -32,3 +45,19 @@ Since single linkedlist has value and reference, the pointer
 - The last node's next pointer will point to null
 - 
 
+
+  private class Node {
+    private int value;
+    private Node next;
+    private Node previous;
+
+    public Node(int value) {
+      this.value = value;
+    }
+
+    public Node(int value, Node previous, Node next) {
+      this.value = value;
+      this.previous = previous;
+      this.next = next;
+    }
+  }

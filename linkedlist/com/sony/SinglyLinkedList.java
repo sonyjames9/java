@@ -36,9 +36,8 @@ public class SinglyLinkedList {
     insertAtFirstNode.next = head;
     head = insertAtFirstNode;
 
-    if (tail == null) {
+    if (tail == null)
       tail = head;
-    }
     size += 1;
 
   }
