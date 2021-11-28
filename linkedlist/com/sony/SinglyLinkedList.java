@@ -139,13 +139,12 @@ public class SinglyLinkedList {
     return node;
   }
 
-  public int findNodeIndexOfValue(int value) {
+  public int findNodeOfValue(int value) {
     Node node = head;
     int index = 1;
     while (node != null) {
       if (node.value == value)
         return index;
-      // return node;
       node = node.next;
       index += 1;
     }

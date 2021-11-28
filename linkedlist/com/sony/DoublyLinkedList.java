@@ -35,7 +35,7 @@ public class DoublyLinkedList {
       head.previous = insertAtFirstNode;
     head = insertAtFirstNode;
 
-    size += 1;
+    this.size += 1;
 
   }
 
@@ -55,31 +55,132 @@ public class DoublyLinkedList {
     last.next = insertAtLastNode;
     insertAtLastNode.previous = last;
 
-    size += 1;
+    this.size += 1;
 
+  }
+
+  public void insertAtIndex(int index, int value) {
+    if (index == 0)
+      insertFirst(value);
+    else if (index == size - 1)
+      insertLast(value);
+    else if (index > size)
+      throw new IndexOutOfBoundsException();
+    else {
+      Node prevNode = findNodeAtIndex(index - 2);
+      Node insertAtIndexNode = new Node(value, prevNode, prevNode.next);
+      insertAtIndexNode.next = prevNode.next;
+      prevNode.next = insertAtIndexNode;
+      insertAtIndexNode.previous = prevNode;
+      if (insertAtIndexNode.next != null)
+        insertAtIndexNode.next.previous = insertAtIndexNode;
+      this.size += 1;
+    }
+  }
+
+  public void insertNodeAfterValue(int valueToBeSearched, int value) {
+
+    Node nodeAtValue = findNodeAfterValue(valueToBeSearched);
+    if (nodeAtValue == null) {
+      System.out.println("Node does not exists");
+      return;
+    }
+    Node nodeToBeInsertedAfterValue = new Node(value);
+    nodeToBeInsertedAfterValue.next = nodeAtValue.next;
+    nodeAtValue.next = nodeToBeInsertedAfterValue;
+    nodeToBeInsertedAfterValue.previous = nodeAtValue;
+    if (nodeToBeInsertedAfterValue.next != null)
+      nodeToBeInsertedAfterValue.next.previous = nodeToBeInsertedAfterValue;
+    this.size += 1;
+  }
+
+  public void deleteAtFirst() throws Exception {
+    if (head == null && tail == null)
+      throw new Exception("Empty Linked list");
+    else if (head.next == null) {
+      head = null;
+    } else {
+      Node node = head;
+      node = node.next;
+      head = node;
+      head.previous = null;
+    }
+    size -= 1;
+  }
+
+  public void deleteAtLast() throws Exception {
+    if (head == null && tail == null) {
+      throw new Exception("Empty Linked List");
+    }
+    Node findPreviousNode = findNodeAtIndex(size - 2);
+    tail = findPreviousNode;
+    findPreviousNode.next = null;
+    tail.previous = findPreviousNode.previous;
+    size -= 1;
+  }
+
+  public void deleteNodeAtIndex(int index) throws Exception {
+    if (index == 0)
+      deleteAtFirst();
+    else if (index == size)
+      deleteAtLast();
+    else if (index > size)
+      throw new IndexOutOfBoundsException();
+    else {
+      Node nodeAtIndex = findNodeAtIndex(index - 2);
+      nodeAtIndex.next = nodeAtIndex.next.next;
+      nodeAtIndex.next.previous = nodeAtIndex;
+    }
+    size -= 1;
+  }
+
+  public Node findNodeAtIndex(int index) {
+    Node nodeAtIndex = head;
+    for (int i = 0; i < index; i++) {
+      nodeAtIndex = nodeAtIndex.next;
+    }
+    System.out.println(nodeAtIndex.value);
+    return nodeAtIndex;
+  }
+
+  public Node findNodeAfterValue(int value) {
+    Node node = head;
+    while (node != null) {
+      if (node.value == value)
+        return node;
+      node = node.next;
+    }
+    return null;
   }
 
   public void display() {
     Node node = head;
+    Node lastNode = null;
     while (node != null) {
       System.out.print(node.value);
+      lastNode = node;
       node = node.next;
       if (node != null)
         System.out.print(" -> ");
     }
-    System.out.println();
-  }
+    System.out.println("\nNodes in reverese order");
 
-  public void displayRev() {
-    Node node = tail;
-    while (node != null) {
-      System.out.print(node.value);
-      node = node.previous;
-      if (node != null)
+    while (lastNode != null) {
+      System.out.print(lastNode.value);
+      lastNode = lastNode.previous;
+      if (lastNode != null) {
         System.out.print(" <- ");
+      }
     }
     System.out.println();
   }
-  
+
+  /*
+   * public void displayRev() { Node node = head; Node lastNode = null; while
+   * (node != null) { node = node.next; lastNode = node; } while (lastNode !=
+   * null) { System.out.print(lastNode.value); if (lastNode != null) {
+   * System.out.print(" <- "); lastNode = lastNode.previous; } }
+   * System.out.println(); }
+   */
 
 }
