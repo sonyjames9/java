@@ -10,7 +10,7 @@ public class CircularLinkedList {
     this.size = 0;
   }
 
-  public class Node {
+  public static class Node {
     private int value;
     private Node next;
 
@@ -41,7 +41,7 @@ public class CircularLinkedList {
   public void delete(int valueToBeDeleted) {
     Node node = head;
     if (node == null) {
-      return
+      return;
     }
     if (node.value == valueToBeDeleted) {
       head = head.next;

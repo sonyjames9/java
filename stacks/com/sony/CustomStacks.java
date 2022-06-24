@@ -1,12 +1,12 @@
 package stacks.com.sony;
 
-public class StacksImp {
+public class CustomStacks {
 	protected int[] data;
 	private static final int DEFAULT_SIZE = 5;
 
 	int ptr = -1;
 
-	public StacksImp() {
+	public CustomStacks() {
 		this(DEFAULT_SIZE);
 	}
 
@@ -16,12 +16,12 @@ public class StacksImp {
 	* */
 
 	//Constructor
-	public StacksImp(int size) {
+	public CustomStacks(int size) {
 		this.data = new int[size];
 	}
 
 	//Constructor
-	public StacksImp(int[] data) {
+	public CustomStacks(int[] data) {
 		this.data = data;
 	}
 

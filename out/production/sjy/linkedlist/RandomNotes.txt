@@ -1,0 +1,15 @@
+Two types of memory
+1. Stack
+2. Heap
+
+a = 10
+a is ref variable
+10 is object
+
+a is stored in stack and 
+10 is stored in heap
+a points to that object, points to the address of object 10
+
+variables/function calls are stored in stack
+objects/value of objects are stored in heap/ram
+

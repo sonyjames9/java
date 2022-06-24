@@ -1,6 +1,6 @@
 package stacks.com.sony;
 
-public class DynamicStacks extends StacksImp {
+public class DynamicStacks extends CustomStacks {
 	public DynamicStacks() {
 		super();
 	}

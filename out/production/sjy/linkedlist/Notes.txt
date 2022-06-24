@@ -21,7 +21,7 @@ Question why single linkedlist only moves ahead and not backwards?
 
 - Then implement it
 Since single linkedlist has value and reference, the pointer 
-- head should always point to first node and tail always to last node
+- head should always point to first node and tail to always last node
 
   private class Node {
     private int value;

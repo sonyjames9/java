@@ -1,2 +1,7 @@
-package stacks.com.sony;public class StackException {
+package stacks.com.sony;
+
+public class StackException extends Exception {
+	public StackException(String message) {
+		super(message);
+	}
 }
