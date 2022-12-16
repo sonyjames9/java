@@ -2,11 +2,13 @@ package linkedlist.com.sony;
 
 public class SinglyLinkedList {
 	/*
-	 * - LinkedList with head and tail, size is calculated in each function during
-	 * insertion/deletion - head should always point to first node and tail to last
-	 * node - use temp nodes to traverse for insertion/deletetion/searching/sorting
-	 * - Never move head/tail references. - Draw your code before implementation -
-	 * Visualize on pen and paper then implement
+	 * - LinkedList with head and tail
+	 * - size is calculated in each function during insertion/deletion 
+	 * - head should always point to first node and tail to last node
+	 * - use temp nodes to traverse for insertion/deletetion/searching/sorting
+	 * - Never move head/tail references.
+	 * - Draw your code before implementation 
+	 * - Visualize on pen and paper then implement
 	 */
 	public Node head;
 	public Node tail;
